@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { TheamConext } from "../context/TheamContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const {theam, toggleButton} = useContext(TheamConext)
 
   const navItems = [
     { label: "Virtual Demo", to: "/virtual-demo" },
@@ -85,6 +87,10 @@ const Header = () => {
             </div>
             <span className="fs-3 fw-bold text-primary">Logo</span>
           </Link>
+
+          <button onClick={toggleButton}>
+            Theam : {theam}
+          </button>
 
           {/* Desktop Menu */}
           <nav className="d-none d-md-flex">

@@ -5,13 +5,16 @@ import App from './App';
 import './index.css';
 import { Provider } from 'react-redux';
 import store from './redux/storeData/store';
+import { TheamProvider } from './context/TheamContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store= {store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
+  <TheamProvider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </TheamProvider>
 
 );
